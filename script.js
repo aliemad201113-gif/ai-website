@@ -12,13 +12,11 @@ async function sendMessage() {
   output.innerHTML = "AI tænker... <br><small>Debug: sender besked til server...</small>";
 
   try {
-    const res = await fetch("https://malignantly-extranuclear-ryann.ngrok-free.dev/chat", {
+    const res = await fetch("https://aetherion-ai.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input })
     });
-
-    console.log("Fetch status:", res.status);
 
     if (!res.ok) {
       const text = await res.text();
@@ -27,8 +25,6 @@ async function sendMessage() {
     }
 
     const data = await res.json();
-    console.log("Server data:", data);
-
     output.innerHTML = data.reply || "Ingen svar fra serveren.";
 
   } catch (err) {
@@ -36,6 +32,7 @@ async function sendMessage() {
     output.innerHTML = `Der skete en fejl under fetch.<br>${err}`;
   }
 }
+
 
 
 
