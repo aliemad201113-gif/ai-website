@@ -7,20 +7,25 @@ const OpenAI = require("openai");
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Tillad kun din Shopify-side (CORS)
+const corsOptions = {
+  origin: "https://www.aetherion.com", // dit Shopify-domæne
+  methods: ["GET", "POST"]
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
-// Serve statiske filer
-app.use(express.static(__dirname));
+// Serve statiske filer fra "public"
+app.use(express.static(path.join(__dirname, "public")));
 
-// Serve index.html på roden
+// Serve index.html
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Chat-historik for kontekst
+// Chat-historik
 let chatHistory = [
   { role: "system", content: "Du er en klog og hjælpsom AI-assistent, der svarer grundigt og præcist på alle spørgsmål." }
 ];
@@ -29,34 +34,30 @@ let chatHistory = [
 app.post("/chat", async (req, res) => {
   try {
     const message = req.body.message;
-
-    // Tilføj brugerens besked til historikken
     chatHistory.push({ role: "user", content: message });
 
-    const client = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
-
+    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const completion = await client.chat.completions.create({
-      model: "gpt-4", // Brug en stærkere model
+      model: "gpt-4",
       messages: chatHistory
     });
 
     const reply = completion.choices[0].message.content;
-
-    // Tilføj AI’ens svar til historikken
     chatHistory.push({ role: "assistant", content: reply });
 
     res.json({ reply });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Noget gik galt med OpenAI" });
   }
 });
 
-// Start serveren
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server kører på http://localhost:${PORT}`);
+  console.log(`Server kører på port ${PORT}`);
 });
+
+
 
 
