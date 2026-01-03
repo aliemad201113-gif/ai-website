@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aetherion AI</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aetherion AI</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Velkommen til Aetherion AI</h1>
-  </header>
+<header>
+  <h1>Velkommen til Aetherion AI</h1>
+</header>
 
-  <main>
-    <section>
-      <h2>Spørg AI’en</h2>
+<main>
+  <!-- CHAT -->
+  <section>
+    <h2>Chat med AI</h2>
+    <textarea id="userInput" placeholder="Skriv dit spørgsmål..."></textarea>
+    <button id="analyzeBtn">Spørg</button>
+    <div id="output"></div>
+  </section>
 
-      <textarea
-        id="userInput"
-        placeholder="Stil et spørgsmål (fx noget aktuelt fra 2026)..."
-      ></textarea>
+  <!-- IMAGE -->
+  <section>
+    <h2>Generer et billede</h2>
+    <textarea id="imagePrompt" placeholder="Beskriv billedet..."></textarea>
+    <button id="generateBtn">Generer billede</button>
+    <div id="imageOutput"></div>
+  </section>
+</main>
 
-      <button id="analyzeBtn">Spørg</button>
+<footer>
+  <p>© 2025 Aetherion</p>
+</footer>
 
-      <div id="output"></div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 Aetherion</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
