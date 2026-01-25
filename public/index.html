@@ -13,11 +13,20 @@
 </header>
 
 <main>
-  <!-- ÉN SEKTION TIL ALT -->
   <section>
     <h2>Spørg AI om tekst, billede eller video</h2>
+    
+    <!-- Prompt textarea -->
     <textarea id="userInput" placeholder="Skriv hvad du vil, fx 'lav en video af en futuristisk by'"></textarea>
+
+    <!-- Referencebillede upload -->
+    <label for="fileInput">Upload referencebillede (valgfrit):</label>
+    <input type="file" id="fileInput" accept="image/*">
+
+    <!-- Knap -->
     <button id="askBtn">Spørg AI</button>
+
+    <!-- Output -->
     <div id="output"></div>
   </section>
 </main>
@@ -26,9 +35,11 @@
   <p>© 2025 Aetherion</p>
 </footer>
 
+<!-- Script -->
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
