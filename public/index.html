@@ -3,40 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aetherion AI</title>
+  <title>Aetherion AI Chat</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <h1>Velkommen til Aetherion AI</h1>
-</header>
-
-<main>
-  <section>
-    <h2>Spørg AI om tekst, billede eller video</h2>
-    
-    <!-- Prompt input -->
-    <textarea id="userInput" placeholder="Skriv hvad du vil, fx 'lav en video af en futuristisk by'"></textarea>
-    
-    <!-- Referencebillede (valgfrit) -->
-    <label for="fileInput">Upload referencebillede (valgfrit):</label>
-    <input type="file" id="fileInput" accept="image/*">
-    
-    <!-- Knap -->
-    <button id="askBtn">Spørg AI</button>
-    
-    <!-- Output -->
-    <div id="output" style="margin-top: 20px;"></div>
-  </section>
-</main>
-
-<footer>
-  <p>© 2026 Aetherion</p>
-</footer>
-
-<!-- Script -->
-<script src="script.js"></script>
+  <div class="chat-wrapper">
+    <div class="chat-header"><h2>Aetherion AI</h2></div>
+    <div id="chat" class="chat-window"></div>
+    <div class="input-area">
+      <textarea id="userInput" placeholder="Skriv noget..."></textarea>
+      <div class="input-buttons">
+        <input type="file" id="fileInput" accept="image/*">
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
 
