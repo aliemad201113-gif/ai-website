@@ -1,0 +1,23 @@
+{
+  "name": "mit-website",
+  "version": "1.0.0",
+  "description": "Mit første AI website",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^4.22.1",
+    "multer": "^2.0.2",
+    "openai": "^4.104.0",
+    "@runwayml/sdk": "^1.0.0",
+    "node-fetch": "^3.3.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
